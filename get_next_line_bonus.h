@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 19:14:42 by mtomomit          #+#    #+#             */
-/*   Updated: 2022/05/17 14:54:18 by mtomomit         ###   ########.fr       */
+/*   Updated: 2022/05/19 16:45:44 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@
 
 # ifndef OPEN_MAX
 #  define OPEN_MAX 257
+# endif
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
 # endif
 
 size_t			ft_strlcpy(char *dst, const char *src, size_t size);
