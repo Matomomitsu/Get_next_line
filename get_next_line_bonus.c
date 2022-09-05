@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 10:17:35 by mtomomit          #+#    #+#             */
-/*   Updated: 2022/05/17 20:01:55 by mtomomit         ###   ########.fr       */
+/*   Updated: 2022/09/05 17:10:26 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,25 +54,25 @@ static char	*partial_line(char *buffer)
 	return (line);
 }
 
-static char	*get_line(char *buffer, char *line, int fd, long int chars_read)
+static char	*get_line(char *buf, char *line, int fd, long int chars_read)
 {
 	char	*temp;
 
 	while (ft_strchr(line, '\n') == NULL && chars_read != 0)
 	{
-		if (ft_strchr(&buffer[0], '\n'))
+		if (ft_strchr(&buf[0], '\n'))
 		{
-			temp = partial_line(&buffer[0]);
+			temp = partial_line(&buf[0]);
 			line = ft_realloc(line, ft_strlen(temp) + ft_strlen(line) + 1);
 			complete_line(&line, temp);
 			free(temp);
 		}
 		else
 		{
-			line = ft_realloc(line, ft_strlen(&buffer[0]) + ft_strlen(line) + 1);
-			complete_line(&line, &buffer[0]);
-			chars_read = read(fd, &buffer[0], BUFFER_SIZE);
-			buffer[chars_read] = '\0';
+			line = ft_realloc(line, ft_strlen(&buf[0]) + ft_strlen(line) + 1);
+			complete_line(&line, &buf[0]);
+			chars_read = read(fd, &buf[0], BUFFER_SIZE);
+			buf[chars_read] = '\0';
 		}
 	}
 	if (chars_read == 0 && line[0] == '\0')
@@ -96,7 +96,6 @@ static char	*read_file(char *buffer, char *line, int fd)
 	chars_read = read(fd, &buffer[0], BUFFER_SIZE);
 	if (chars_read < 0)
 	{
-		free(buffer);
 		free(line);
 		return (NULL);
 	}
@@ -119,11 +118,13 @@ char	*get_next_line(int fd)
 	if (ft_strchr(buffer[fd], '\n') == NULL)
 		line = ft_strdup((char *)"");
 	if (ft_strchr(buffer[fd], '\n'))
-	{
 		line = partial_line(buffer[fd]);
-		return (line);
-	}
 	else
-		return (read_file(buffer[fd], line, fd));
-	return (NULL);
+		line = (read_file(buffer[fd], line, fd));
+	if (!line)
+	{
+		free(buffer[fd]);
+		buffer[fd] = NULL;
+	}
+	return (line);
 }

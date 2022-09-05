@@ -6,14 +6,13 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 19:14:42 by mtomomit          #+#    #+#             */
-/*   Updated: 2022/05/19 16:52:27 by mtomomit         ###   ########.fr       */
+/*   Updated: 2022/09/02 18:09:50 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_BONUS_H
 # define GET_NEXT_LINE_BONUS_H
 
-# include <stddef.h>
 # include <limits.h>
 # include <unistd.h>
 # include <stdlib.h>

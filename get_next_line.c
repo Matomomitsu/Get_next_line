@@ -1,16 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 19:14:18 by mtomomit          #+#    #+#             */
-/*   Updated: 2022/05/16 21:44:14 by mtomomit         ###   ########.fr       */
+/*   Updated: 2022/09/05 17:10:32 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "get_next_line.h"
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <stdio.h>
 
 static void	complete_line(char **s1, char const *s2)
 {

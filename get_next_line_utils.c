@@ -6,11 +6,11 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 10:17:51 by mtomomit          #+#    #+#             */
-/*   Updated: 2022/05/15 20:56:36 by mtomomit         ###   ########.fr       */
+/*   Updated: 2022/09/02 18:09:19 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 size_t	ft_strlen(char const *s)
 {
